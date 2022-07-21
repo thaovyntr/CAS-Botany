@@ -14,6 +14,7 @@ df = pd.read_csv(r'/Users/a1/Downloads/PortalFiles/PortalData.csv',
 
 #creating map
 fig = px.scatter_geo(df,
+                     projection = 'orthographic',
                      lat='latitude1',
                      lon='longitude1', 
                      hover_name="fullName", 
@@ -29,9 +30,7 @@ fig.show()
 #Dash layout
 app.layout = html.Div(children=[
     html.H1(children='Map of plant species around the world'),
-    html.Div(children='''
-        This data was provided by California Academy of Science.
-    '''),
+    html.Div(children='This data was provided by California Academy of Science.'),
 
     dcc.Graph(
         id='botany-map',
